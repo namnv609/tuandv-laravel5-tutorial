@@ -12,5 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(url('/admin'));
+});
+
+Route::group(['prefix' => 'admin','namespace' => 'Admin'], function() {
+    Route::get('/', 'CategoryController@index');
+    
+    Route::group(['prefix' => 'categories'], function() {
+        get('/', 'CategoryController@index');
+        get('/create', 'CategoryController@getCreate');
+        post('/create', 'CategoryController@postCreate');
+        get('/{jobId}/edit', 'CategoryController@getEdit')->where('id', '^[0-9]+$');
+        post('/{jobId}/edit', 'CategoryController@postEdit')->where('id', '^[0-9]+$');
+    });
+    
 });
