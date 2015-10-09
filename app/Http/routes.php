@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return redirect(url('/admin'));
+    return redirect(url('/user'));
 });
 
 Route::group(['prefix' => 'admin','namespace' => 'Admin'], function() {
@@ -22,15 +22,21 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'], function() {
         get('/', 'CategoryController@index');
         get('/create', 'CategoryController@getCreate');
         post('/create', 'CategoryController@postCreate');
-        get('/{jobId}/edit', 'CategoryController@getEdit')->where('id', '^[0-9]+$');
-        post('/{jobId}/edit', 'CategoryController@postEdit')->where('id', '^[0-9]+$');
+        get('/{categoryId}/edit', 'CategoryController@getEdit')->where('id', '^[0-9]+$');
+        post('/{categoryId}/edit', 'CategoryController@postEdit')->where('id', '^[0-9]+$');
     });
     
     Route::group(['prefix' => 'contents'], function() {
         get('/', 'ContentController@index');
         get('/create', 'ContentController@getCreate');
         post('/create', 'ContentController@postCreate');
-        get('/{jobId}/edit', 'ContentController@getEdit')->where('id', '^[0-9]+$');
-        post('/{jobId}/edit', 'ContentController@postEdit')->where('id', '^[0-9]+$');
+        get('/{contentId}/edit', 'ContentController@getEdit')->where('id', '^[0-9]+$');
+        post('/{contentId}/edit', 'ContentController@postEdit')->where('id', '^[0-9]+$');
     });
+});
+
+Route::group(['prefix' => 'user','namespace' => 'User'], function() {
+    Route::get('/', 'HomepageController@index');
+    get('/{categoryId}/category', 'HomepageController@getContent')->where('id', '^[0-9]+$');
+    get('contents/{contentId}/detail', 'HomepageController@getDetail')->where('id', '^[0-9]+$');
 });

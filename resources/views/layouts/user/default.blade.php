@@ -2,11 +2,11 @@
 <html lang="en-US">
     <head>
         <meta charset="UTF-8">
-        <title>@yield('page_title', 'Admin')</title>
+        <title>@yield('page_title', 'User')</title>
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link href="/css/libs/bootstrap/bootstrap.min.css?v=<?php echo time() ?>" rel="stylesheet" type="text/css" />
         <link href="libs/font-awesome/css/font-awesome.min.css?v=<?php echo time() ?>" rel="stylesheet" type="text/css" />
-        <link href="/css/admin/admin.css?v=<?php echo time() ?>" rel="stylesheet" type="text/css" />
+        <link href="/css/user/user.css?v=<?php echo time() ?>" rel="stylesheet" type="text/css" />
         @yield('css')
     </head>
     <body>
@@ -34,20 +34,12 @@
                     </div>
                 </div>
             </nav>
+            
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-3 col-md-2 sidebar">
                         <ul class="nav nav-sidebar">
-                            <li >
-                                <a href="{{ url('admin/categories') }}">
-                                    <i class="fa fa-fw fa-dashboard"></i> {{ trans('admin.default.category') }}
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('admin/contents') }}">
-                                    <i class="fa fa-fw fa-dashboard"></i> {{ trans('admin.default.content') }}
-                                </a>
-                            </li>
+                            @yield('slide_bar')
                         </ul>
                     </div>
                     @show
@@ -59,9 +51,6 @@
                                         @yield('top_buttons')
                                     </div>
                                     <div class="col-lg-12">
-                                        <h1 class="page-header">
-                                            @yield('page_header')
-                                        </h1>
                                     </div>
                                     <div class="col-lg-12">
                                         @yield('content')
@@ -75,7 +64,6 @@
         </div>
         <script type="text/javascript" src="/js/jquery.js?v=<?php echo time() ?>"></script>
         <script type="text/javascript" src="/js/bootstrap.min.js?v=<?php echo time() ?>"></script>
-        <script type="text/javascript" src="/js/admins/backend.js?v=<?php echo time() ?>"></script>
 
         @yield('script')
     </body>
