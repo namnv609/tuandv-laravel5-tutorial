@@ -3,7 +3,7 @@
 @section('top_buttons')
     {!! Html::link(
         url('admin/categories'),
-        trans('admin.create.btn_back'),
+        trans('admin.category.create.btn_back'),
         [
             'class' => 'btn btn-info'
         ]
@@ -11,7 +11,7 @@
 @endsection
 
 @section('page_header')
-    {{ trans('admin.edit.heading') }}
+    {{ trans('admin.category.edit.heading') }}
 @endsection
 
 @section('content')
@@ -20,16 +20,16 @@
             {!! Form::open(['role' => 'form']) !!}
 
             <div class="form-group">
-                <label>{{ trans('admin.edit.name') }}</label>
+                <label>{{ trans('admin.category.edit.name') }}</label>
                 {!! Form::text('name', $category->name, ['class' => 'form-control']) !!}
             </div>
             <div class="form-group">
-                {!! Form::submit(trans('admin.buttons.save'), [
+                {!! Form::submit(trans('admin.category.buttons.save'), [
                     'name' => 'edit',
                     'class' => 'btn btn-primary'
                 ]) !!}
                 
-                {!! Form::submit(trans('admin.buttons.delete'), [
+                {!! Form::submit(trans('admin.category.buttons.delete'), [
                     'name'=> 'delete',
                     'class' => 'btn btn-primary',
                     'onclick' => 'return confirm("Do you want delete?")',

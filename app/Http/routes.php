@@ -26,4 +26,11 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'], function() {
         post('/{jobId}/edit', 'CategoryController@postEdit')->where('id', '^[0-9]+$');
     });
     
+    Route::group(['prefix' => 'contents'], function() {
+        get('/', 'ContentController@index');
+        get('/create', 'ContentController@getCreate');
+        post('/create', 'ContentController@postCreate');
+        get('/{jobId}/edit', 'ContentController@getEdit')->where('id', '^[0-9]+$');
+        post('/{jobId}/edit', 'ContentController@postEdit')->where('id', '^[0-9]+$');
+    });
 });
