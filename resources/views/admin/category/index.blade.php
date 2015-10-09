@@ -3,7 +3,7 @@
 @section('top_buttons')
     {!! Html::link(
         url('admin/categories/create'),
-        trans('admin.index.add_new_category'),
+        trans('admin.category.index.add_new_category'),
         [
             'class' => 'btn btn-success'
         ]
@@ -18,8 +18,8 @@
                 <thead>
                     <tr>
                         <th>NA</th>
-                        <th>{{ trans('admin.index.title') }}</th>
-                        <th>{{ trans('admin.index.updated_at') }}</th>
+                        <th>{{ trans('admin.category.index.title') }}</th>
+                        <th>{{ trans('admin.category.index.updated_at') }}</th>
                         <th>&nbsp;</th>
                     </tr>
                 </thead>

@@ -3,8 +3,12 @@
 /**
  * Admins language
  */
-
 return [
+    'default' => [
+        'category' => 'Manage categories',
+        'content' => 'Manage Contents'
+    ],
+    'category' => [
         'index' => [
             'heading' => 'Job templates',
             'title' => 'Title',
@@ -22,7 +26,6 @@ return [
             'btn_back' => 'Back to list Categories',
             'name' => 'Category Name',
             'add_new_category_success' => 'Add new Category success',
-            
         ],
         'edit' => [
             'heading' => 'Edit Category',
@@ -33,4 +36,37 @@ return [
             'save' => 'Save',
             'delete' => 'Delete'
         ],
+    ],
+    'content' => [
+        'index' => [
+            'title' => 'Title',
+            'updated_at' => 'Updated at',
+            'content' => 'Contents',
+            'add_new_content' => 'Add new Content',
+            'descreption' => 'Description',
+            'category_id' => 'Category ID',
+            'category_name' => 'Category name',
+        ],
+        'create' => [
+            'heading' => 'Add new Content',
+            'btn_back' => 'Back to list Contents',
+            'add_new_content_success' => 'Add new Content success',
+            'title' => 'Title',
+            'content' => 'Content',
+            'category' => 'Category',
+            'desc' => 'Description',
+        ],
+        'edit' => [
+            'heading' => 'Edit Content',
+            'name' => 'Content Name',
+            'title' => 'Title',
+            'confirm_delete' => 'Do you want delete?',
+            'delete_success' => 'Content deleted successful',
+            'edit_content_success' => 'Edit Content success'
+        ],
+        'buttons' => [
+            'save' => 'Save',
+            'delete' => 'Delete'
+        ],
+    ],
 ];
